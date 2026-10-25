@@ -1,0 +1,22 @@
+{
+    "newArticle": [
+        {
+            "title": "Exploring the world through travel",
+            "description": "Discover how travelling helps you experience new cultures and create lasting memories",
+            "body": "Travel allows people to explore new destinations, experience different cultures, and discover unfamiliar cuisines. Whether visiting mountains, beaches, or historic cities, every journey offers an opportunity to learn something new.",
+            "tags": "Travel"
+        },
+        {
+            "title": "Build a Successful Testing Strategy",
+            "description": "Discover how to plan effective testing activities for reliable software releases",
+            "body": "A good testing strategy begins with understanding business requirements and identifying risks. Define test scenarios, prioritize critical workflows, combine manual and automated testing, and maintain clear test reports.",
+            "tags": "Nexus 6"
+        },
+        {
+            "title": "The Future of Artificial Intelligence",
+            "description": "Explore how artificial intelligence is transforming industries and everyday life",
+            "body": "Artificial intelligence is changing the way people work, learn, and communicate. From intelligent assistants to automated workflows, AI helps improve efficiency and solve complex problems. In the future, responsible AI development will play an important role in shaping society.",
+            "tags": "AI"
+        }
+    ]
+}
