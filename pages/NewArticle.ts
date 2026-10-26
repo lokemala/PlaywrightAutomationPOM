@@ -28,7 +28,7 @@ export default class NewArticlePage {
 
     async deleteArticleIfExists(title: string) {
         await this.profileLink.click();
-
+        await this.page.waitForTimeout(3000);
         const articleHeading = this.page.getByRole('heading', { name: title, exact: true });
         if (await articleHeading.count() === 0) {
             return;
@@ -38,7 +38,21 @@ export default class NewArticlePage {
             await this.deleteArticleBtn.click();
             await expect(this.page).toHaveURL('https://conduit.bondaracademy.com/');
         }
-        await expect(this.noArticles).toBeVisible();
+    }
+
+    async deleteArticle(title: string) {
+        await this.profileLink.click();
+
+        const articleHeading = this.page.getByRole('heading', { name: title, exact: true });
+        await expect(articleHeading).toBeVisible();
+        await articleHeading.click();
+        await this.deleteArticleBtn.click();
+        await expect(this.page).toHaveURL('https://conduit.bondaracademy.com/');
+
+        await this.profileLink.click();
+        const anyArticle = this.page.locator('app-article-preview h1').first();
+        await expect(anyArticle.or(this.noArticles)).toBeVisible();
+        await expect(articleHeading).toBeHidden();
     }
 
     async createNewArticle(title: string, description: string, body: string, tags: string) {

@@ -22,3 +22,9 @@ newArticle.forEach((article) => {
     },
   );
 });
+
+test(`Delete 2nd Article: ${newArticle[1].title}`, async ({ goToNewArticlePage }) => {
+  await test.step("Step: 1:  Delete the 2nd Article", async () => {
+    await goToNewArticlePage.deleteArticle(newArticle[1].title);
+  });
+});
