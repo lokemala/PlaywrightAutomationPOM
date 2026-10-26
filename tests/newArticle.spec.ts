@@ -1,5 +1,5 @@
 import { test } from "../fixtures/CustomFixture";
-import { newArticle } from "../testData/articles.json";
+import { newArticle, editArticle } from "../testData/articles.json";
 
 test.beforeEach("Launch Url as logged-in Admin", async ({ goToLoginPage }) => {
   await goToLoginPage.launchURL();
@@ -21,6 +21,12 @@ newArticle.forEach((article) => {
       });
     },
   );
+});
+
+test(`Edit 2nd Article: ${newArticle[1].title}`, async ({ goToNewArticlePage }) => {
+  await test.step("Step: 1:  Edit the 2nd Article", async () => {
+    await goToNewArticlePage.editArticle(newArticle[1].title, editArticle.body);
+  });
 });
 
 test(`Delete 2nd Article: ${newArticle[1].title}`, async ({ goToNewArticlePage }) => {

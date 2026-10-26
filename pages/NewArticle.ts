@@ -10,7 +10,8 @@ export default class NewArticlePage {
     readonly publishBtn: Locator;
     readonly profileLink: Locator;
     readonly deleteArticleBtn: Locator;
-    readonly noArticles: Locator
+    readonly noArticles: Locator;
+    readonly editArticleBtn: Locator
 
     constructor(page: Page) {
         this.page = page;
@@ -23,6 +24,8 @@ export default class NewArticlePage {
         this.profileLink = page.locator('a.nav-link[href^="/profile/"]');
         this.deleteArticleBtn = page.getByRole('button', { name: 'Delete Article' }).first();
         this.noArticles = page.getByText('No articles are here... yet.');
+        this.editArticleBtn = page.getByRole('link', { name: 'Edit Article' }).first();
+
 
     }
 
@@ -65,5 +68,20 @@ export default class NewArticlePage {
         await this.articleTags.fill(tags);
         await this.publishBtn.click();
         await expect(this.page.getByRole('heading', { name: title })).toBeVisible();
+    }
+
+    async editArticle(title: string, body: string) {
+        await this.profileLink.click();
+
+        const articleHeading = this.page.getByRole('heading', { name: title, exact: true });
+        await expect(articleHeading).toBeVisible();
+        await articleHeading.click();
+        await this.editArticleBtn.click();
+
+        await expect(this.articleBody).toBeEditable();
+        await this.articleBody.fill(body);
+        await this.publishBtn.click();
+        await expect(this.page.getByRole('heading', { name: title })).toBeVisible();
+        await expect(this.page.getByText(body)).toBeVisible();
     }
 }

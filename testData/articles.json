@@ -18,5 +18,8 @@
             "body": "Artificial intelligence is changing the way people work, learn, and communicate. From intelligent assistants to automated workflows, AI helps improve efficiency and solve complex problems. In the future, responsible AI development will play an important role in shaping society.",
             "tags": "AI"
         }
-    ]
+    ],
+    "editArticle": {
+        "body": "An effective testing strategy starts with clear requirements and a risk-based approach. Focus on high-impact user journeys, automate stable regression scenarios, run tests continuously in CI, and review results regularly to improve release quality."
+    }
 }
